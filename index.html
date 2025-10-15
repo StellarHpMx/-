@@ -1,0 +1,812 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>STELLAR HP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #000;
+      --muted: #9ca3af;
+      --accent: #06b6d4;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,sans-serif;
+      background:var(--bg);
+      color:rgb(0, 0, 0);
+    }
+    </style>
+
+  <!-- Estilos universales -->
+   <link rel="stylesheet" href="CSS/preloader.css">
+  <link rel="stylesheet" href="CSS/menu.css">
+  <link rel="stylesheet" href="CSS/carrito.css">
+  <link rel="stylesheet" href="CSS/footer.css">
+    </head>
+<body>
+<!-- ====== PRELOADER (único, minimal) ====== -->
+<div id="preloader">
+  <div class="preloader-content">
+    <img src="IMAGES/LOGO111.webp" alt="Logo" class="preloader-logo">
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="brand">
+    <img src="IMAGES/LOGO111.webp" alt="logo">
+  </div>
+
+  <!-- Menú -->
+  <div class="menu" id="menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="gorras.html">Gorras X Exclusivas</a></li>
+      <li><a href="#">Streetwear</a></li>
+      <li><a href="catalogo.html">Todo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <!-- Lupa -->
+    <button class="icon-btn" id="searchBtn" aria-label="Buscar">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2z"/>
+      </svg>
+    </button>
+
+    <!-- Carrito -->
+    <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-2h12v-2H7V6H3V4h4l3.6 7.59-1.35 2.45C8.52 14.37 8.76 15 9.3 15H19v2H7zm10 2c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2z"/>
+      </svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- Hamburguesa -->
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- Panel del carrito -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h3>Carrito</h3>
+    <button class="close-cart" id="closeCart">✖</button>
+  </div>
+  <div id="cartItems" class="cart-items">Tu carrito está vacío 🛒</div>
+  <p id="cartTotalLine">Total: $0 MXN</p>
+  <button id="checkoutBtn">Pagar (WhatsApp)</button>
+</div>
+
+
+<!-- Carrusel -->
+<div class="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="IMAGES/GORRAS.webp" alt="Banner 1">
+      <div class="carousel-caption">
+        <h2>GORRAS EXCLUSIVAS !!!</h2>
+        <p>Dandy Hats , Barbas Hats , Boss Hats y más</p>
+        <a href="gorras.html" class="btn">COMPRAR</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="IMAGES/LEAN.webp" alt="Banner 2">
+      <div class="carousel-caption">
+        <h2>Siguenos En Nuestras Redes Sociales</h2>
+        <p>INSTAGRAM , TITKOK , FB</p>
+        <a href="https://www.instagram.com/stellar_hp?igsh=MXUzajNnMzFmNnZsOA==" class="btn">VER MÁS</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="IMAGES/SILVER.webp" alt="Banner 3">
+      <div class="carousel-caption">
+        <h2>Streetwear</h2>
+        <p>Hoodies , Playeras , Pantalones y más</p>
+        <a href="#" class="btn">COMPRAR</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botones -->
+  <button class="prev">&#10094;</button>
+  <button class="next">&#10095;</button>
+
+  <!-- Indicadores -->
+  <div class="dots"></div>
+</div>
+
+<style>.carousel {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.carousel-caption h2,
+.carousel-caption p {
+  color: #fff; /* texto blanco */
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.carousel-caption h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dots {
+  text-align: center;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dots .active {
+  background: #333;
+}
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 250px; /* más bajo en móvil */
+  }
+
+  .carousel-caption h2 {
+    font-size: 18px;
+  }
+
+  .carousel-caption p {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+</style>
+<script>const items = document.querySelectorAll('.carousel-item');
+const dotsContainer = document.querySelector('.dots');
+let index = 0;
+let interval = setInterval(nextSlide, 5000);
+
+// Crear dots
+items.forEach((_, i) => {
+  const dot = document.createElement('span');
+  dot.addEventListener('click', () => showSlide(i));
+  dotsContainer.appendChild(dot);
+});
+updateDots();
+
+document.querySelector('.prev').addEventListener('click', prevSlide);
+document.querySelector('.next').addEventListener('click', nextSlide);
+
+function showSlide(i) {
+  index = (i + items.length) % items.length;
+  document.querySelector('.carousel-inner').style.transform = `translateX(-${index * 100}%)`;
+  updateDots();
+  resetInterval();
+}
+
+function nextSlide() { showSlide(index + 1); }
+function prevSlide() { showSlide(index - 1); }
+
+function updateDots() {
+  document.querySelectorAll('.dots span').forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+function resetInterval() {
+  clearInterval(interval);
+  interval = setInterval(nextSlide, 5000);
+}
+</script>
+
+
+
+
+<!-- ====== CARRUSEL DE LOGOS 1 (infinito) ====== -->
+<div class="hs-logo-carousel">
+  <div id="logoTrack1" class="hs-logo-track">
+    <!-- SECUENCIA ORIGINAL -->
+    <img src="IMAGES/BALENCIAGALOGO.webp" alt="Balenciaga">
+    <img src="IMAGES/PlayLogo.webp" alt="Play">
+    <img src="IMAGES/ESSELOGO1.webp" alt="Esse">
+    <img src="IMAGES/AMIRILOGO.webp" alt="Amiri">
+    <img src="IMAGES/LVLOGO.webp" alt="Louis Vuitton">
+    <img src="IMAGES/DIORLOGO.webp" alt="Dior">
+    <img src="IMAGES/BUBERRYLOGO.webp" alt="Burberry">
+
+    <!-- DUPLICADO (necesario para loop infinito sin JS) -->
+    <img src="IMAGES/BALENCIAGALOGO.webp" alt="Balenciaga">
+    <img src="IMAGES/PlayLogo.webp" alt="Play">
+    <img src="IMAGES/ESSELOGO1.webp" alt="Esse">
+    <img src="IMAGES/AMIRILOGO.webp" alt="Amiri">
+    <img src="IMAGES/LVLOGO.webp" alt="Louis Vuitton">
+    <img src="IMAGES/DIORLOGO.webp" alt="Dior">
+    <img src="IMAGES/BUBERRYLOGO.webp" alt="Burberry">
+  </div>
+</div>
+
+
+
+
+<section class="apps-section">
+  <div class="container">
+    <!-- Texto a la izquierda -->
+    <div class="text-block">
+      <h1>Todas Las Marcas En 1 Solo Lugar.</h1>
+      <p>
+       Descubre nuestro gran catálogo , vive la experiencia.<br>  
+        <a href="catalogo.html">Solo en STELLAR HP.COM.MX</a>
+      </p>
+    </div>
+
+    <!-- Lista de apps con IMÁGENES -->
+    <div class="apps-list">
+      <div class="app-icon" style="background:#000;">
+        <img src="IMAGES/BugattiLogo.webp " alt="Uber">
+      </div>
+      <div class="app-icon" style="background:#000000;">
+        <img src="IMAGES/BALENCIAGALOGO.webp" alt="Pinterest">
+      </div>
+      <div class="app-icon" style="background:#000000;">
+        <img src="IMAGES/BARBASLOGO.webp" alt="Notion">
+      </div>
+      <div class="app-icon" style="background:#000000;">
+        <img src="IMAGES/PlayLogo.webp" alt="Wise">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>/* --- APARTADO DE APPS --- */
+.apps-section {
+  background: #000000;   /* color de fondo */
+  color: #fff;
+  padding: 60px 20px;
+}
+
+.apps-section .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.text-block {
+  max-width: 400px;
+}
+.text-block h1 {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.text-block p {
+  font-size: 16px;
+  color: #ccc;
+}
+.text-block a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-bottom: 2px solid #fff;
+}
+
+/* Apps en bloque */
+.apps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.app-icon {
+  width: 75px;
+  height: 75px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.app-icon img {
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+}
+.app-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .apps-section .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .apps-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+  }
+}</style>
+
+
+<!-- ====== CARRUSEL DE LOGOS 2 (infinito) ====== -->
+<div class="hs-logo-carousel">
+  <div id="logoTrack2" class="hs-logo-track">
+    <!-- SECUENCIA ORIGINAL -->
+    <img src="IMAGES/BALENCIAGALOGO.webp" alt="Balenciaga">
+    <img src="IMAGES/PlayLogo.webp" alt="Play">
+    <img src="IMAGES/ESSELOGO1.webp" alt="Esse">
+    <img src="IMAGES/AMIRILOGO.webp" alt="Amiri">
+    <img src="IMAGES/LVLOGO.webp" alt="Louis Vuitton">
+    <img src="IMAGES/DIORLOGO.webp" alt="Dior">
+    <img src="IMAGES/BUBERRYLOGO.webp" alt="Burberry">
+
+    <!-- DUPLICADO -->
+    <img src="IMAGES/BALENCIAGALOGO.webp" alt="Balenciaga">
+    <img src="IMAGES/PlayLogo.webp" alt="Play">
+    <img src="IMAGES/ESSELOGO1.webp" alt="Esse">
+    <img src="IMAGES/AMIRILOGO.webp" alt="Amiri">
+    <img src="IMAGES/LVLOGO.webp" alt="Louis Vuitton">
+    <img src="IMAGES/DIORLOGO.webp" alt="Dior">
+    <img src="IMAGES/BUBERRYLOGO.webp" alt="Burberry">
+  </div>
+</div>
+
+<!-- ====== ESTILOS (pega dentro de tu <style> o justo con el bloque) ====== -->
+<style>
+/* Prefijo hs- para evitar colisiones con estilos existentes */
+.hs-logo-carousel {
+  overflow: hidden;
+  background: #000;
+  padding: 20px 0;
+  position: relative;
+}
+
+/* La pista contiene dos copias de la secuencia para permitir el loop */
+.hs-logo-track {
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  width: max-content;
+  animation: hs-scroll 40s linear infinite;
+  /* evita saltos por subpixel */
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Imágenes de logos: mantienen proporción y se redimensionan */
+.hs-logo-track img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease;
+  display: block;
+}
+
+/* pequeño zoom al hover (es opcional) */
+.hs-logo-track img:hover {
+  transform: scale(1.08);
+}
+
+
+/* Animación: mueve la pista la mitad de su ancho (porque hay 2 secuencias idénticas) */
+@keyframes hs-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Responsive: ajusta tamaños y gaps */
+@media (max-width: 1024px) {
+  .hs-logo-track { gap: 40px; animation-duration: 35s; }
+  .hs-logo-track img { height: 65px; }
+}
+
+@media (max-width: 600px) {
+  .hs-logo-track { gap: 25px; animation-duration: 30s; }
+  .hs-logo-track img { height: 50px; }
+}
+</style>
+
+<!-- ====== SECCIÓN TOP MÁS VENDIDOS ====== -->
+<section class="hs-top-sellers">
+  <h2 class="hs-title">🔥 Top Más Vendidos 🔥</h2>
+
+  <div class="hs-products-container">
+    <button class="hs-arrow left" id="hsPrevBtn">&#10094;</button>
+
+    <div class="hs-products-track" id="hsProductsTrack">
+      <div class="hs-product">
+        <img src="IMAGES/31 Hats Segundo Aniversario.webp" alt="Producto 1">
+        <h3>31 Hats Segundo Aniversario</h3>
+        <p>$1200 MXN</p>
+                  <!-- Botón Ver Detalles -->
+<button class="hs-add-cart" onclick="window.location.href='31 Hats Segundo Aniversario.html'">Ver detalles</button>
+      </div>
+
+      <div class="hs-product">
+        <img src="IMAGES/Barbas Hats 77.webp" alt="Producto 2">
+        <h3>Barbas Hats 77</h3>
+        <p>$1200 MXN</p>
+                  <!-- Botón Ver Detalles -->
+<button class="hs-add-cart" onclick="window.location.href='Barbas Hats 77.html'">Ver detalles</button>
+      </div>
+
+      <div class="hs-product">
+        <img src="IMAGES/Big Boss Elegua.webp" alt="Producto 3">
+        <h3>Big Boss Elegua</h3>
+        <p>$1600 MXN</p>
+                  <!-- Botón Ver Detalles -->
+<button class="hs-add-cart" onclick="window.location.href='Big Boss Elegua.html'">Ver detalles</button>
+      </div>
+
+      <div class="hs-product">
+        <img src="IMAGES/STELLARLOGO.webp" alt="Producto 4">
+        <h3>PROXIMAMENTE</h3>
+        <p>$350 MXN</p>
+                  <!-- Botón Ver Detalles -->
+<button class="hs-add-cart" onclick="window.location.href=''">Ver detalles</button>
+      </div>
+
+      <div class="hs-product">
+        <img src="IMAGES/STELLARLOGO.webp" alt="Producto 5">
+        <h3>PROXIMAMENTE</h3>
+        <p>$599 MXN</p>
+                  <!-- Botón Ver Detalles -->
+<button class="hs-add-cart" onclick="window.location.href=''">Ver detalles</button>
+      </div>
+    </div>
+
+    <button class="hs-arrow right" id="hsNextBtn">&#10095;</button>
+  </div>
+</section>
+
+<!-- ====== ESTILOS ====== -->
+<style>
+.hs-top-sellers {
+  background: #000;
+  color: #fff;
+  padding: 50px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hs-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255,255,255,0.5);
+  margin-bottom: 25px;
+}
+
+.hs-products-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hs-products-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  transition: transform 0.3s ease;
+}
+
+.hs-product {
+  background: #111;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: 200px;
+  flex-shrink: 0;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.hs-product img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.hs-product h3 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+  text-shadow: 0 0 3px rgba(255,255,255,0.4);
+}
+
+.hs-product p {
+  color: #ccc;
+  font-weight: bold;
+}
+
+.hs-add-cart {
+  margin-top: 10px;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.hs-add-cart:hover {
+  background: #ccc;
+}
+
+.hs-arrow {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  transition: background 0.3s;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+}
+
+.hs-arrow:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.hs-arrow.left { left: 0; }
+.hs-arrow.right { right: 0; }
+
+@media (max-width: 768px) {
+  .hs-products-track { gap: 15px; }
+  .hs-product { min-width: 160px; }
+  .hs-arrow { font-size: 1.5rem; width: 35px; height: 35px; }
+}
+</style>
+
+<!-- ====== SCRIPT ====== -->
+<script>
+const hsTrack = document.getElementById('hsProductsTrack');
+const hsPrev = document.getElementById('hsPrevBtn');
+const hsNext = document.getElementById('hsNextBtn');
+
+hsNext.addEventListener('click', () => {
+  hsTrack.scrollBy({ left: 250, behavior: 'smooth' });
+});
+
+hsPrev.addEventListener('click', () => {
+  hsTrack.scrollBy({ left: -250, behavior: 'smooth' });
+});
+</script>
+<!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo-contact">
+        <h2><img src="IMAGES/STELLARLOGO.webp" alt="Logo 1" class="logo1"></h2>
+        <p><strong>Encuéntranos en</strong></p>
+        <p>📞 +52 56 5792 3327</p>
+        <p>CDMX <br>Oax</p>
+      </div>
+      <div class="footer-links">
+        <h4>¿Qué estás buscando?</h4>
+        <ul>
+          <li><a href="gorras.html">Gorras / Exclusivas</a></li>
+          <li><a href="Catálogo1.html#departamentos">Hoodies</a></li>
+          <li><a href="Catálogo1.html#casas">Colaboraciones</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Síguenos en nuestras redes sociales</h4>
+        <div class="social-icons">
+         <a href=""><img src="IMAGES/FB8.webp" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/stellar_hp?igsh=MXUzajNnMzFmNnZsOA=="><img src="IMAGES/IG3.webp" alt="Instagram" /></a>
+          <a href=""><img src="IMAGES/TT2.webp" alt="TikTok" /></a>
+          <a href=""><img src="IMAGES/YT4.webp" alt="YouTube" /></a>
+        </div>
+        <p>Asociados con:</p>
+          <a href="https://www.instagram.com/fmmg_frank?igsh=MWY2cTdxNXJibThpNw%3D%3D&utm_source=qr"><img src="IMAGES/Logo1.webp" alt="AMPI México" class="ampi-logo" /></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 STELLAR HP. Todos los derechos reservados.</p>
+      <p>Software FMMG_Frank</p>
+    </div>
+  </footer>
+<style>/* Evita color morado y subrayado en enlaces y botones */
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit; /* mantiene el color del diseño */
+}
+
+/* Si usas botones tipo enlace */
+button, .btn-detalles, .btn-vermas {
+  text-decoration: none;
+  color: #fff;
+  background-color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Efecto hover uniforme */
+button:hover, .btn-detalles:hover, .btn-vermas:hover {
+  background-color: #fffffd;
+  color: #111;
+}
+</style>
+
+
+
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <script src="JS/menu.js"></script>
+  <script src="JS/carrito.js"></script>
+  <script src="JS/preloader.js"></script>
+<script>const cartBtn = document.getElementById('cartBtn');
+const cartPanel = document.getElementById('cartPanel');
+const closeCart = document.getElementById('closeCart');
+const cartItemsContainer = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotalLine = document.getElementById('cartTotalLine');
+const checkoutBtn = document.getElementById('checkoutBtn');
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCart() {
+  cartItemsContainer.innerHTML = '';
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const div = document.createElement('div');
+    div.classList.add('cart-item');
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-info">
+        <p><strong>${item.name}</strong></p>
+        <p>$${item.price} x ${item.quantity}</p>
+      </div>
+      <button class="remove-btn" data-index="${index}">✖</button>
+    `;
+    cartItemsContainer.appendChild(div);
+    total += item.price * item.quantity;
+  });
+
+  cartCount.textContent = cart.length;
+  cartTotalLine.textContent = `Total: $${total.toFixed(2)} MXN`;
+  saveCart();
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = 'Vacío';
+  }
+
+  document.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.onclick = () => {
+      const index = btn.dataset.index;
+      cart.splice(index, 1);
+      updateCart();
+    };
+  });
+}
+
+cartBtn.onclick = () => cartPanel.classList.add('open');
+closeCart.onclick = () => cartPanel.classList.remove('open');
+
+window.addToCart = function(name, price, image) {
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({ name, price, image, quantity: 1 });
+  }
+  updateCart();
+  cartPanel.classList.add('open');
+};
+
+checkoutBtn.onclick = () => {
+  if (cart.length === 0) return alert('Tu carrito está vacío');
+  const message = cart
+    .map(item => `${item.name} (${item.quantity}) - $${item.price * item.quantity}`)
+    .join('%0A');
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const text = `Hola, quiero realizar una compra:%0A${message}%0ATotal: $${total.toFixed(2)} MXN`;
+  window.open(`https://wa.me/?text=${text}`, '_blank');
+};
+
+updateCart();
+</script>
+ 
+</body>
+</html>

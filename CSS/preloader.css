@@ -1,0 +1,33 @@
+/* === PRELOADER: FORZAR viewport completo (parche seguro) === */
+#preloader {
+  position: fixed !important;
+  inset: 0 !important;               /* top:0; right:0; bottom:0; left:0 */
+  width: 100vw !important;
+  height: 100vh !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 2147483647 !important;    /* muy por encima para pruebas */
+  background: #000 !important;
+  transition: opacity 0.8s ease, visibility 0.8s ease !important;
+  pointer-events: auto !important;
+}
+
+#preloader.fade-out {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* logo/animación */
+.preloader-logo {
+  width: 120px;
+  height: auto;
+  animation: spinZoom 1.8s ease-in-out infinite;
+}
+@keyframes spinZoom {
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50% { transform: scale(1.1) rotate(180deg); opacity: 0.8; }
+  100% { transform: scale(1) rotate(360deg); opacity: 1; }
+}

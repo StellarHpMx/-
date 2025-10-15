@@ -1,0 +1,118 @@
+/* ====== FOOTER ====== */
+.footer {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-logo-contact,
+.footer-links,
+.footer-social {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer h2,
+.footer h4 {
+  margin-bottom: 10px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin: 6px 0;
+}
+
+.footer-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #FFD700;
+}
+
+.footer-links ul li a:visited {
+  color: #fff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+}
+
+.ampi-logo {
+  margin-top: 10px;
+  width: 80px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #000000;
+  margin-top: 30px;
+  padding-top: 20px;
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+  max-height: 80px;
+}
+
+.logo1 {
+  height: 110px;
+  width: auto;
+  max-height: 130px;
+}
+
+/* Enlaces sin color morado ni subrayado */
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Botones tipo enlace uniformes */
+button,
+.btn-detalles,
+.btn-vermas {
+  text-decoration: none;
+  color: #fff;
+  background-color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover */
+button:hover,
+.btn-detalles:hover,
+.btn-vermas:hover {
+  background-color: #fffffd;
+  color: #111;
+}

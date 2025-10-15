@@ -1,0 +1,252 @@
+/* === UNIVERSAL NAVBAR (STELLAR HP) === */
+
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  background: #000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* === LOGO === */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.brand img {
+  height: 60px;
+  width: auto;
+  max-height: 80px;
+  border-radius: 10px;
+}
+
+/* === MENÚ PRINCIPAL === */
+.menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+.menu ul li a:hover {
+  color: var(--accent);
+  transform: scale(1.08);
+}
+
+/* === ACCIONES (CARRITO, ETC) === */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.icon-btn:hover {
+  color: var(--accent);
+  transform: scale(1.15);
+}
+.cart-count {
+  position: absolute;
+  top: -5px;
+  right: -8px;
+  background: red;
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+/* === ICONO HAMBURGUESA === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1200;
+}
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background-color: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+/* Animación hamburguesa → X */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}
+
+/* === PANEL DEL CARRITO === */
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 350px;
+  height: 100%;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+  transition: right 0.35s ease;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+.cart-panel.open {
+  right: 0;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.cart-header h3 {
+  margin: 0;
+}
+.close-cart {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+.cart-items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #111;
+  padding: 8px;
+  border-radius: 8px;
+}
+.cart-item img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.cart-info {
+  flex: 1;
+  margin-left: 10px;
+}
+.cart-info p {
+  margin: 0;
+  font-size: 14px;
+}
+.remove-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+#checkoutBtn {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 0;
+  background: #25d366;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+#checkoutBtn:hover {
+  background: #1ebe5d;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.97);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    padding-top: 100px;
+    transition: right 0.4s ease;
+    z-index: 1100;
+  }
+
+  .menu.active {
+    display: flex;
+    right: 0;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .menu ul li a {
+    font-size: 1.1em;
+  }
+
+  .hamburger.active {
+    position: fixed;
+    top: 22px;
+    right: 24px;
+  }
+}
+/* === ICONOS SVG UNIVERSALES (CARRITO, LUPA, ETC) === */
+.icon-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  color: white;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.icon-btn:hover svg {
+  color: var(--accent);
+  transform: scale(1.15);
+}
+

@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo Principal — STELLAR HP</title>
+      <!-- Estilos universales -->
+  <link rel="stylesheet" href="CSS/menu.css">
+  <link rel="stylesheet" href="CSS/carrito.css">
+  <link rel="stylesheet" href="CSS/footer.css">
+  <style>
+    :root{
+      --bg:#fffdfd57; --card:#fff; --muted:#6b7280; --accent:#111827;
+      --shadow:0 2px 8px rgba(0,0,0,0.08);
+      --yellow:#fbff00;
+      --green:#00a650;
+    }
+    *{box-sizing:border-box;}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto;background:var(--bg);color:var(--accent)}
+
+    header{background:var(--yellow);padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    header input{flex:1;min-width:200px;border:none;border-radius:50px;padding:8px 14px;}
+    header h1{font-size:18px;margin:0;font-weight:700;}
+
+    .section{margin:24px auto;max-width:1200px;padding:0 16px;}
+    .section h2{font-size:18px;margin-bottom:10px;}
+
+    /* --- Estilo horizontal --- */
+    .scroll-row{display:flex;gap:14px;overflow-x:auto;scroll-behavior:smooth;padding-bottom:10px;}
+    .scroll-row::-webkit-scrollbar{display:none;}
+    .product-card{flex:0 0 auto;width:200px;background:var(--card);border-radius:10px;box-shadow:var(--shadow);padding:10px;}
+
+    /* --- Estilo dos columnas --- */
+    .grid-2{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+
+    /* --- Estilo detallado --- */
+    .list-1{display:flex;flex-direction:column;gap:14px;}
+    .product-detail{display:flex;gap:14px;background:var(--card);padding:10px;border-radius:10px;box-shadow:var(--shadow);align-items:center;}
+    .product-detail img{width:120px;height:120px;object-fit:cover;border-radius:10px;}
+
+    .product-card img{width:100%;height:180px;object-fit:cover;border-radius:8px;}
+    .title{font-size:15px;font-weight:600;margin:6px 0 4px;}
+    .price{font-weight:700;}
+    .old{font-size:13px;color:var(--muted);text-decoration:line-through;}
+    .off{color:#00a650;font-size:13px;}
+    .envio{color:var(--green);font-size:13px;margin-top:2px;}
+
+    .ver-mas{display:block;text-align:center;margin-top:10px;font-weight:600;color:#2962ff;text-decoration:none;}
+    /* Evita color morado y subrayado en enlaces y botones */
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+  color: inherit; /* mantiene el color del diseño */
+}
+
+/* Si usas botones tipo enlace */
+button, .btn-detalles, .btn-vermas {
+  text-decoration: none;
+  color: #fff;
+  background-color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Efecto hover uniforme */
+button:hover, .btn-detalles:hover, .btn-vermas:hover {
+  background-color: #ffcc00;
+  color: #111;
+}
+/* Asegura scroll horizontal correcto para las gorras */
+.scroll-row {
+  display: flex;
+  flex-wrap: nowrap; /* evita salto de línea */
+  gap: 14px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+}
+.scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.product-detail img {
+  flex-shrink: 0;
+}
+
+
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+<nav class="navbar">
+  <div class="brand">
+    <img src="IMAGES/LOGO111.webp" alt="logo">
+  </div>
+
+  <!-- Menú -->
+  <div class="menu" id="menu">
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="gorras.html">Gorras X Exclusivas</a></li>
+      <li><a href="#">Streetwear</a></li>
+      <li><a href="catalogo.html">Todo</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <!-- Lupa -->
+    <button class="icon-btn" id="searchBtn" aria-label="Buscar">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2z"/>
+      </svg>
+    </button>
+
+    <!-- Carrito -->
+    <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm0-2h12v-2H7V6H3V4h4l3.6 7.59-1.35 2.45C8.52 14.37 8.76 15 9.3 15H19v2H7zm10 2c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2z"/>
+      </svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+
+    <!-- Hamburguesa -->
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- Panel del carrito -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h3>Carrito</h3>
+    <button class="close-cart" id="closeCart">✖</button>
+  </div>
+  <div id="cartItems" class="cart-items">Tu carrito está vacío 🛒</div>
+  <p id="cartTotalLine">Total: $0 MXN</p>
+  <button id="checkoutBtn">Pagar (WhatsApp)</button>
+</div>
+<section class="section">
+    <h2>Gorras x Exclusivas</h2>
+    <div class="scroll-row">
+      <div class="product-card">
+      <img src="IMAGES/Dandy Hats x Tombochio.webp" alt="Gorra 1">
+      <div class="title">Dandy Hats x Tombochio</div>
+      <div class="price">$2,000</div>
+      <div class="envio">Envío gratis</div><br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='Dandy Hats x Tombochio.html'">Ver detalles</button>
+      </div>
+      <div class="product-card">
+        <img src="IMAGES/31 Hats Segundo Aniversario.webp" alt="Playera 2">
+        <div class="title">31 Hats Segundo Aniversario</div>
+        <div class="price">$1,500</div>
+        <div class="envio">Envío gratis</div><br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='31 Hats Segundo Aniversario.html'">Ver detalles</button>
+      </div>
+      <div class="product-card">
+        <img src="IMAGES/Barbas Hats 77.webp" alt="Playera 3">
+        <div class="title">Barbas Hats 77</div>
+        <div class="price">$1,200</div>
+        <div class="off">20% OFF</div>
+                  <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='Barbas Hats 77.html'">Ver detalles</button>
+      </div>
+    <div class="product-card">
+      <img src="IMAGES/Barbas Hats Rockstar x CT.webp" alt="Gorra 4">
+      <div class="title">Barbas Hats Rockstar x CT</div>
+      <div class="price">$2,000</div>
+      <div class="off">20% OFF</div><br>
+           <!-- Botón Ver Detalles -->
+      <button class="btn-detalles" onclick="window.location.href='Barbas Hats Rockstar x CT.html'">Ver detalles</button>
+    </div>
+    </div>
+    <a href="gorras.html" class="ver-mas">Ver más</a>
+  </section>
+
+  <section class="section">
+    <h2>Relacionados con tu estilo</h2>
+    <div class="grid-2">
+      <div class="product-card">
+        <img src="IMAGES/LOGO111.webp" alt="Playera 4">
+        <div class="title">Playera Minimal</div>
+        <div class="price">$259</div>
+        <div class="envio">Envío gratis</div>
+                  <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='-----.html'">Ver detalles</button>
+      </div>
+      <div class="product-card">
+        <img src="IMAGES/LOGO111.webp" alt="Playera 5">
+        <div class="title">Playera Retro Logo</div>
+        <div class="price">$319</div>
+        <div class="off">15% OFF</div>
+                  <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='-----.html'">Ver detalles</button>
+      </div>
+      <div class="product-card">
+        <img src="IMAGES/LOGO111.webp" alt="Playera 6">
+        <div class="title">Playera Básica Blanca</div>
+        <div class="price">$199</div>
+        <br>
+                  <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='-----.html'">Ver detalles</button>
+      </div>
+      <div class="product-card">
+        <img src="IMAGES/LOGO111.webp" alt="Playera 7">
+        <div class="title">Playera Urban Oversize</div>
+        <div class="price">$379</div>
+        <div class="envio">FULL · SÚPER</div>
+                  <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='-----.html'">Ver detalles</button>
+      </div>
+    </div>
+    <a href="catalogo-grid.html" class="ver-mas">Ver más</a>
+  </section>
+
+  <section class="section">
+    <h2>Recomendado para ti</h2>
+    <div class="list-1">
+      <div class="product-detail">
+        <img src="IMAGES/LOGO111.webp" alt="Playera Detalle 1">
+        <div>
+          <div class="title">PROXIMAMENTE</div>
+          <div class="old">$</div>
+          <div class="price">$</div>
+          <div class="off">% </div>
+          <div class="envio">Envío gratis</div>
+                    <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='bugatti.html'">Ver detalles</button>
+        </div>
+      </div>
+      <div class="product-detail">
+        <img src="IMAGES/LOGO111.webp" alt="Playera Detalle 2">
+        <div>
+          <div class="title">PROXIMAMENTE</div>
+          <div class="price">$</div>
+          <div class="envio">FULL · SÚPER</div>
+          <br>
+          <!-- Botón Ver Detalles -->
+<button class="btn-detalles" onclick="window.location.href='iplay.html'">Ver detalles</button>
+        </div>
+      </div>
+    </div>
+    <a href=".html" class="ver-mas">Ver más</a>
+  </section>
+    <!-- Puedes seguir agregando más y se mantendrán en fila -->
+  </div>
+</section>
+
+
+<script>
+  function verDetalles(id) {
+    // Redirige al archivo de detalles, pasando el ID por la URL
+    window.location.href = `detalles.html?id=${id}`;
+  }
+</script>
+ <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo-contact">
+        <h2><img src="IMAGES/STELLARLOGO.webp" alt="Logo 1" class="logo1"></h2>
+        <p><strong>Encuéntranos en</strong></p>
+        <p>📞 +52 56 5792 3327</p>
+        <p>Todo México <br>Oax</p>
+      </div>
+      <div class="footer-links">
+        <h4>¿Qué estás buscando?</h4>
+        <ul>
+          <li><a href="gorras.html">Gorras / Exclusivas</a></li>
+          <li><a href="Catálogo1.html#departamentos">Hoodies</a></li>
+          <li><a href="gorras.html">Colaboraciones</a></li>
+
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Síguenos en nuestras redes sociales</h4>
+        <div class="social-icons">
+         <a href=""><img src="IMAGES/FB8.webp" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/stellar_hp?igsh=MXUzajNnMzFmNnZsOA=="><img src="IMAGES/IG3.webp" alt="Instagram" /></a>
+          <a href=""><img src="IMAGES/TT2.webp" alt="TikTok" /></a>
+          <a href=""><img src="IMAGES/YT4.webp" alt="YouTube" /></a>
+        </div>
+        <p>Asociados con:</p>
+          <a href="https://www.instagram.com/fmmg_frank?igsh=MWY2cTdxNXJibThpNw%3D%3D&utm_source=qr"><img src="IMAGES/Logo1.webp" alt="AMPI México" class="ampi-logo" /></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 STELLAR HP. Todos los derechos reservados.</p>
+      <p>Software FMMG_Frank</p>
+    </div>
+  </footer>
+<style>
+  .btn-detalles {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+
+  .btn-detalles:hover {
+    background-color: #ffffff;
+    color: #111;
+  }
+
+
+</style>
+
+
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <!-- ✅ Scripts universales -->
+  <script src="JS/menu.js"></script>
+  <script src="JS/carrito.js"></script>
+<script>const cartBtn = document.getElementById('cartBtn');
+const cartPanel = document.getElementById('cartPanel');
+const closeCart = document.getElementById('closeCart');
+const cartItemsContainer = document.getElementById('cartItems');
+const cartCount = document.getElementById('cartCount');
+const cartTotalLine = document.getElementById('cartTotalLine');
+const checkoutBtn = document.getElementById('checkoutBtn');
+
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function saveCart() {
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+function updateCart() {
+  cartItemsContainer.innerHTML = '';
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    const div = document.createElement('div');
+    div.classList.add('cart-item');
+    div.innerHTML = `
+      <img src="${item.image}" alt="${item.name}">
+      <div class="cart-info">
+        <p><strong>${item.name}</strong></p>
+        <p>$${item.price} x ${item.quantity}</p>
+      </div>
+      <button class="remove-btn" data-index="${index}">✖</button>
+    `;
+    cartItemsContainer.appendChild(div);
+    total += item.price * item.quantity;
+  });
+
+  cartCount.textContent = cart.length;
+  cartTotalLine.textContent = `Total: $${total.toFixed(2)} MXN`;
+  saveCart();
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = 'Vacío';
+  }
+
+  document.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.onclick = () => {
+      const index = btn.dataset.index;
+      cart.splice(index, 1);
+      updateCart();
+    };
+  });
+}
+
+cartBtn.onclick = () => cartPanel.classList.add('open');
+closeCart.onclick = () => cartPanel.classList.remove('open');
+
+window.addToCart = function(name, price, image) {
+  const existing = cart.find(item => item.name === name);
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({ name, price, image, quantity: 1 });
+  }
+  updateCart();
+  cartPanel.classList.add('open');
+};
+
+checkoutBtn.onclick = () => {
+  if (cart.length === 0) return alert('Tu carrito está vacío');
+  const message = cart
+    .map(item => `${item.name} (${item.quantity}) - $${item.price * item.quantity}`)
+    .join('%0A');
+  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const text = `Hola, quiero realizar una compra:%0A${message}%0ATotal: $${total.toFixed(2)} MXN`;
+  window.open(`https://wa.me/?text=${text}`, '_blank');
+};
+
+updateCart();
+</script>
+</body>
+</html>
