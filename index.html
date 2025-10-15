@@ -484,137 +484,138 @@ function resetInterval() {
 }
 </style>
 
-<!-- ====== SECCIÓN TOP MÁS VENDIDOS ====== -->
-<section class="hs-top-sellers">
-  <h2 class="hs-title">🔥 Top Más Vendidos 🔥</h2>
+<!-- ====== SECCIÓN TOP MÁS VENDIDOS (IGUAL A CATÁLOGO PERO TRANSPARENTE) ====== -->
+<section class="stellar-top-transparent">
+  <h2 class="stellar-title">🔥 Top Más Vendidos 🔥</h2>
 
-  <div class="hs-products-container">
-    <button class="hs-arrow left" id="hsPrevBtn">&#10094;</button>
+  <div class="hs-wrapper">
+    <button class="hs-btn left" id="hsPrevBtn">&#10094;</button>
 
-    <div class="hs-products-track" id="hsProductsTrack">
+    <div class="hs-container" id="hsContainer">
       <div class="hs-product">
-        <img src="IMAGES/31 Hats Segundo Aniversario.webp" alt="Producto 1">
+        <img src="IMAGES/31 Hats Segundo Aniversario.webp" alt="31 Hats Segundo Aniversario">
         <h3>31 Hats Segundo Aniversario</h3>
-        <p>$1200 MXN</p>
-                  <!-- Botón Ver Detalles -->
-<button class="hs-add-cart" onclick="window.location.href='31 Hats Segundo Aniversario.html'">Ver detalles</button>
+        <p>$1,200 MXN</p>
+        <button class="hs-btn-shop" onclick="window.location.href='31 Hats Segundo Aniversario.html'">Ver detalles</button>
       </div>
 
       <div class="hs-product">
-        <img src="IMAGES/Barbas Hats 77.webp" alt="Producto 2">
+        <img src="IMAGES/Barbas Hats 77.webp" alt="Barbas Hats 77">
         <h3>Barbas Hats 77</h3>
-        <p>$1200 MXN</p>
-                  <!-- Botón Ver Detalles -->
-<button class="hs-add-cart" onclick="window.location.href='Barbas Hats 77.html'">Ver detalles</button>
+        <p>$1,200 MXN</p>
+        <button class="hs-btn-shop" onclick="window.location.href='Barbas Hats 77.html'">Ver detalles</button>
       </div>
 
       <div class="hs-product">
-        <img src="IMAGES/Big Boss Elegua.webp" alt="Producto 3">
+        <img src="IMAGES/Big Boss Elegua.webp" alt="Big Boss Elegua">
         <h3>Big Boss Elegua</h3>
-        <p>$1600 MXN</p>
-                  <!-- Botón Ver Detalles -->
-<button class="hs-add-cart" onclick="window.location.href='Big Boss Elegua.html'">Ver detalles</button>
+        <p>$1,600 MXN</p>
+        <button class="hs-btn-shop" onclick="window.location.href='Big Boss Elegua.html'">Ver detalles</button>
       </div>
 
       <div class="hs-product">
         <img src="IMAGES/STELLARLOGO.webp" alt="Producto 4">
-        <h3>PROXIMAMENTE</h3>
-        <p>$350 MXN</p>
-                  <!-- Botón Ver Detalles -->
-<button class="hs-add-cart" onclick="window.location.href=''">Ver detalles</button>
-      </div>
-
-      <div class="hs-product">
-        <img src="IMAGES/STELLARLOGO.webp" alt="Producto 5">
-        <h3>PROXIMAMENTE</h3>
-        <p>$599 MXN</p>
-                  <!-- Botón Ver Detalles -->
-<button class="hs-add-cart" onclick="window.location.href=''">Ver detalles</button>
+        <h3>Próximamente</h3>
+        <p>$</p>
+        <button class="hs-btn-shop">Ver detalles</button>
       </div>
     </div>
 
-    <button class="hs-arrow right" id="hsNextBtn">&#10095;</button>
+    <button class="hs-btn right" id="hsNextBtn">&#10095;</button>
   </div>
 </section>
 
 <!-- ====== ESTILOS ====== -->
 <style>
-.hs-top-sellers {
-  background: #000;
-  color: #fff;
+/* ====== SECCIÓN PRINCIPAL ====== */
+.stellar-top-transparent {
+  background: transparent;
   padding: 50px 20px;
   text-align: center;
+  color: #fff;
   position: relative;
   overflow: hidden;
 }
 
-.hs-title {
+.stellar-title {
   font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 0 0 5px rgba(255,255,255,0.5);
-  margin-bottom: 25px;
+  font-weight: 800;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
 }
 
-.hs-products-container {
+/* ====== CONTENEDOR Y CARRUSEL ====== */
+.hs-wrapper {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.hs-products-track {
+.hs-container {
   display: flex;
-  gap: 20px;
-  overflow-x: hidden;
+  gap: 14px;
+  overflow-x: auto;
   scroll-behavior: smooth;
-  transition: transform 0.3s ease;
+  padding: 10px;
+  scrollbar-width: none;
 }
+.hs-container::-webkit-scrollbar { display: none; }
 
+/* ====== TARJETA DEL PRODUCTO ====== */
 .hs-product {
-  background: #111;
+  flex: 0 0 auto;
+  width: 200px;
+  background: rgba(255,255,255,0.05);
   border-radius: 10px;
-  padding: 15px;
-  min-width: 200px;
-  flex-shrink: 0;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(255,255,255,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.hs-product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 2px 15px rgba(255,255,255,0.2);
+}
+
+/* IGUAL AL CATÁLOGO */
 .hs-product img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  object-position: center; /* <- mantiene centrada la gorra 31 Hats */
   border-radius: 8px;
 }
 
 .hs-product h3 {
-  margin: 10px 0 5px;
-  font-size: 1.1rem;
-  text-shadow: 0 0 3px rgba(255,255,255,0.4);
+  font-size: 15px;
+  font-weight: 600;
+  margin: 6px 0 4px;
 }
 
 .hs-product p {
-  color: #ccc;
-  font-weight: bold;
+  font-weight: 700;
+  color: #ddd;
+  margin-bottom: 10px;
 }
 
-.hs-add-cart {
-  margin-top: 10px;
+.hs-btn-shop {
   background: #fff;
   color: #000;
   border: none;
-  border-radius: 5px;
-  padding: 8px 15px;
+  border-radius: 6px;
+  padding: 8px 14px;
   cursor: pointer;
   font-weight: 600;
   transition: 0.3s;
 }
-
-.hs-add-cart:hover {
+.hs-btn-shop:hover {
   background: #ccc;
+  transform: scale(1.05);
 }
 
-.hs-arrow {
+/* ====== FLECHAS ====== */
+.hs-btn {
   background: rgba(255,255,255,0.1);
   border: none;
   color: white;
@@ -623,41 +624,45 @@ function resetInterval() {
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  transition: background 0.3s;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 5;
+  z-index: 10;
+  transition: background 0.3s;
 }
-
-.hs-arrow:hover {
+.hs-btn:hover {
   background: rgba(255,255,255,0.3);
 }
+.hs-btn.left { left: 0; }
+.hs-btn.right { right: 0; }
 
-.hs-arrow.left { left: 0; }
-.hs-arrow.right { right: 0; }
-
+/* ====== RESPONSIVO ====== */
 @media (max-width: 768px) {
-  .hs-products-track { gap: 15px; }
-  .hs-product { min-width: 160px; }
-  .hs-arrow { font-size: 1.5rem; width: 35px; height: 35px; }
+  .hs-product { width: 180px; }
+  .hs-product img { height: 160px; }
+  .stellar-title { font-size: 1.6rem; }
+  .hs-btn { width: 35px; height: 35px; font-size: 1.6rem; }
 }
 </style>
 
 <!-- ====== SCRIPT ====== -->
 <script>
-const hsTrack = document.getElementById('hsProductsTrack');
-const hsPrev = document.getElementById('hsPrevBtn');
-const hsNext = document.getElementById('hsNextBtn');
+const hsContainer = document.getElementById('hsContainer');
+const hsNextBtn = document.getElementById('hsNextBtn');
+const hsPrevBtn = document.getElementById('hsPrevBtn');
 
-hsNext.addEventListener('click', () => {
-  hsTrack.scrollBy({ left: 250, behavior: 'smooth' });
+hsNextBtn.addEventListener('click', () => {
+  hsContainer.scrollBy({ left: 250, behavior: 'smooth' });
 });
 
-hsPrev.addEventListener('click', () => {
-  hsTrack.scrollBy({ left: -250, behavior: 'smooth' });
+hsPrevBtn.addEventListener('click', () => {
+  hsContainer.scrollBy({ left: -250, behavior: 'smooth' });
 });
 </script>
+
+
+
+
 <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
